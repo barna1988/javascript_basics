@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+
+    <script src="q5_students_result_card.js"></script>
+    <script>
+
+    function findAvg(row1, row2, avgRowID){
+        var row1Val = document.getElementById(row1).innerText;
+        var row2Val = document.getElementById(row2).innerText;
+        var avgRow = document.getElementById(avgRowID);
+        avgRow.innerHTML = (Number(row1Val) + Number(row2Val))/2;
+    }
+
+    document.write("<table class='table'>")
+    document.write("<thead>");
+    document.write("<tr>");
+    document.write("<th>Name</th>");
+    document.write("<th>Subject#1</th>");
+    document.write("<th>Subject#1 Marks</th>");
+    document.write("<th>Subject#2</th>");
+    document.write("<th>Subject#2 Marks</th>");
+    document.write("<th>Percentage</th>");
+    document.write("</tr>");
+    document.write("</thead>");
+
+        for (rowCount=1; rowCount<=100; rowCount++) {
+            document.write("<tr>")
+            for (colCount=1; colCount<=6; colCount++) {
+                if(colCount == 1){
+                    document.write("<td>Student#" + rowCount + "</td>")
+                }
+                if(colCount == 2){
+                    document.write("<td>Grammar</td>")
+                }
+                if(colCount == 3){
+                    document.write("<td id='row" + rowCount + '1' + "'>" + Math.floor((Math.random() * 100) + 1) + "</td>")
+                }
+                if(colCount == 4 && rowCount%2 == 0){
+                    document.write("<td>Accounts</td>")
+                }
+                if(colCount == 4 && rowCount%2 == 1){
+                    document.write("<td>Physics</td>")
+                }
+                if(colCount == 5){
+                    document.write("<td id='row" + rowCount + '2' + "'>" + Math.floor((Math.random() * 100) + 1) + "</td>")
+                }
+                if(colCount == 6){
+                    var row1ID = 'row' + rowCount + '1';
+                    var row2ID = 'row' + rowCount + '2';
+                    var avgID = 'avg' + rowCount;
+                    document.write("<td id='avg" + rowCount + "'></td>")
+                    findAvg(row1ID, row2ID, avgID);
+                }
+
+            }
+            document.write("</tr>")
+        }
+    document.write("</table>")    
+
+    </script>
+  </head>
+  <body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    </body>
+</html>

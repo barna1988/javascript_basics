@@ -2,8 +2,16 @@
 	based on a given key */
 
 
-const convert = () => {
+const convert = (peopleArray, keyField) => {
 	// Write your code here
+	if(Array.isArray(peopleArray)){
+		const peopleObject = peopleArray.reduce((ac, p) => 
+		({...ac, [p[keyField]]: p }), {} )
+		console.log(peopleObject);
+		return peopleObject;
+	}else{
+		return null;
+	}
 };
 
 /* For example,
@@ -17,3 +25,5 @@ OUTPUT - {
 */
 
 module.exports = convert;
+
+convert([{id: 1, value: 'Barnasree', order: 'First Name'}, {id: 2, value: 'Goswami', order: 'Last Name'}], 'order');
