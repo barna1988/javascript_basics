@@ -15,15 +15,25 @@ const fastRetrieval = (fruitArray, name) => {
     if(Array.isArray(fruitArray)){
         fruitArray.push({name: 'Watermelon', color: 'Striped Green', pricePerKg: 'Rs. 120'});
         fruitArray.pop();
-        const fruitObject = fruitArray.reduce((ac, eachFruit) => 
-        ({...ac, [eachFruit.name]: eachFruit }), {} )
-        console.log(fruitObject[name]);
-        return fruitObject[name];
+        const fruitObject = convert(fruitArray, name);
+        return JSON.stringify(fruitObject);
     }else{
         return null;
     }
 };
 
+const convert = (fruitArray, name) => {
+	if(Array.isArray(fruitArray) && name){
+        var result = {};
+        for (var i=0; i<fruitArray.length; i += 1) {
+            result[fruitArray[i].name] = fruitArray[i];
+        }
+        return result[name];
+	}else{
+		return null;
+	}
+};
+
 module.exports = fastRetrieval;
 
-fastRetrieval(fruits, 'Pomelo');
+fastRetrieval(fruits, 'Mango');

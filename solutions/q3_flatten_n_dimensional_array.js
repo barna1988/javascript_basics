@@ -2,14 +2,12 @@
 
 const flatten = (myArray) => {
 	// Write your code here
+	let elements = null;
 	if(Array.isArray(myArray)){
-		var myStr = myArray.toString('');
-		var elements = JSON.parse('['+myStr+']');
-		console.log(elements);
-		return elements;
-	}else{
-		return null;
+		let myStr = myArray.toString('');
+		elements = JSON.parse('['+myStr+']');
 	}
+	return elements;
 };
 
 /* For example,

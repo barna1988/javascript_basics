@@ -1,19 +1,17 @@
 /* Write a Program to convert an array of objects to an object
 	based on a given key */
 
-
 const convert = (peopleArray, keyField) => {
-	// Write your code here
-	if(Array.isArray(peopleArray)){
-		const peopleObject = peopleArray.reduce((ac, p) => 
-		({...ac, [p[keyField]]: p }), {} )
-		console.log(peopleObject);
-		return peopleObject;
+	if(Array.isArray(peopleArray) && keyField){
+	var result = {};
+	for (var i=0; i<peopleArray.length; i++) {
+		result[peopleArray[i][keyField]] = peopleArray[i];
+	}
+	return result;
 	}else{
 		return null;
 	}
 };
-
 /* For example,
 INPUT - convert([{id: 1, value: 'abc'}, {id: 2, value: 'xyz'}], 'id')
 OUTPUT - {
