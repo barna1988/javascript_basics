@@ -1,22 +1,23 @@
 /* Write a program to build a `Pyramid of stars` of given height */
 
 function printStars(i, str){
+    let retStr = str;
     let k;
     for (k = 0; k < 2 * i + 1; k += 1) {
         if (k === 0 || k % 2 === 0) {
-        str = str + "*";
+            retStr = retStr + "*";
         } else {
-        str = str + " ";
+            retStr = retStr + " ";
         }
     }
 
-    return str;
+    return retStr;
 }
 
 const buildPyramid = (depth) => {
     // Write your code here
    
-    var finalStr = "";
+    let finalStr = "";
     if(!isNaN(depth)){
         let i; let j;
         

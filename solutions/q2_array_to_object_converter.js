@@ -2,15 +2,15 @@
 	based on a given key */
 
 const convert = (peopleArray, keyField) => {
+	let result = {};
 	if(Array.isArray(peopleArray) && keyField){
-	var result = {};
-	for (var i=0; i<peopleArray.length; i++) {
+	for (let i=0; i<peopleArray.length; i += 1) {
 		result[peopleArray[i][keyField]] = peopleArray[i];
+		}
+	}else{
+		result = null;
 	}
 	return result;
-	}else{
-		return null;
-	}
 };
 /* For example,
 INPUT - convert([{id: 1, value: 'abc'}, {id: 2, value: 'xyz'}], 'id')
@@ -24,4 +24,4 @@ OUTPUT - {
 
 module.exports = convert;
 
-convert([{id: 1, value: 'Barnasree', order: 'First Name'}, {id: 2, value: 'Goswami', order: 'Last Name'}], 'order');
+convert([{id: 1, value: 'Barna', order: '1st'}, {id: 2, value: 'Goswami', order: '2nd'}], 'order');

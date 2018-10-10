@@ -5,33 +5,37 @@
 
 // Write your code here
 
-var fruits = [{name: 'Apple', color: 'Red', pricePerKg: 'Rs. 210'}, 
+let fruits = [{name: 'Apple', color: 'Red', pricePerKg: 'Rs. 210'}, 
                 {name: 'Banana', color: 'Green', pricePerKg: 'Rs. 80'},
                 {name: 'Orange', color: 'Orange', pricePerKg: 'Rs. 180'},
                 {name: 'Pomelo', color: 'Light Green', pricePerKg: 'Rs. 90'},
                 {name: 'Mango', color: 'Yellow', pricePerKg: 'Rs. 60'}];
 
+const convert = (fruitArray, name) => {
+    let finalResult;
+    if(Array.isArray(fruitArray) && name){
+        let result = {};
+        for (let i=0; i<fruitArray.length; i += 1) {
+            result[fruitArray[i].name] = fruitArray[i];
+        }
+        finalResult = result[name];
+    }else{
+        finalResult = null;
+    }
+    return finalResult;
+};
+                
 const fastRetrieval = (fruitArray, name) => {
+    let retObj = null;
     if(Array.isArray(fruitArray)){
         fruitArray.push({name: 'Watermelon', color: 'Striped Green', pricePerKg: 'Rs. 120'});
         fruitArray.pop();
         const fruitObject = convert(fruitArray, name);
-        return JSON.stringify(fruitObject);
+        retObj = JSON.stringify(fruitObject);
     }else{
-        return null;
+        retObj = null;
     }
-};
-
-const convert = (fruitArray, name) => {
-	if(Array.isArray(fruitArray) && name){
-        var result = {};
-        for (var i=0; i<fruitArray.length; i += 1) {
-            result[fruitArray[i].name] = fruitArray[i];
-        }
-        return result[name];
-	}else{
-		return null;
-	}
+    return retObj;
 };
 
 module.exports = fastRetrieval;
